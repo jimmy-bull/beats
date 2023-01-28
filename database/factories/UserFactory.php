@@ -5,8 +5,11 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\User;
-use App\Models\test;
-use Database\Factories\testFactory;
+// use App\Models\test;
+use App\Models\Beats;
+// use Database\Factories\testFactory;
+use App\Models\Comments;
+use Database\Factories\BeatsFactory;
 
 class UserFactory extends Factory
 {
@@ -26,15 +29,19 @@ class UserFactory extends Factory
         ];
     }
 
-    public function configure()
-    {
-        return $this->afterCreating(function (User $user) {
-            test::factory(1)->create([
-                'users_id' => $user->id,
-                'text' => "jimmy",
-            ]);
-        });
-    }
+    // public function configure()
+    // {
+    //     return $this->afterCreating(function () {
+    //         Beats::factory(1)->create();
+    //         return Beats::factory(1)->afterCreating(function (User $user, Beats $beats) {
+    //             Comments::factory(1)->create([
+    //                 'beats_id' => $beats->id,
+    //                 'users_id' => $user->id,
+    //                 'comments' => $this->faker->realText(),
+    //             ]);
+    //         });
+    //     });
+    // }
 
     /**
      * Indicate that the model's email address should be unverified.
